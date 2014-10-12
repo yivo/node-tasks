@@ -71,3 +71,5 @@ class TasksManager
       log.err('Too many errors. Exiting') and process.exit -1
     else
       setTimeout @runTask, 0
+
+module.exports = TasksManager;
