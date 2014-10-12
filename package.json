@@ -1,0 +1,27 @@
+{
+  "name": "yivo-node-tasks",
+  "version": "1.0.0",
+  "description": "mysql entity",
+  "main": "tasks-manager.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yivo/node-tasks"
+  },
+  "author": "Yaroslav Konoplov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yivo/node-tasks/issues"
+  },
+  "homepage": "https://github.com/yivo/node-tasks",
+  "files": [
+    "tasks-manager.coffee"
+  ],
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "yivo-node-log": "git+https://github.com/yivo/node-log.git",
+    "yivo-node-registry": "git+https://github.com/yivo/node-registry.git"
+  }
+}
