@@ -10,7 +10,7 @@ class TasksManager
   rTrailingDashes: /[\s\-]*$/
 
   constructor: ->
-    _.bindAll @, 'completeEvent', 'errorHandler', 'runTask'
+    _.bindAll @, 'completeEvent', 'errorEvent', 'runTask'
     @numberOfErrors = 0
     @errorsThreshold = 25
 
@@ -42,16 +42,16 @@ class TasksManager
   runAsync: ->
     try
       @task()
-      @completeHandler()
+      @completeEvent()
     catch err
-      @errorHandler err
+      @errorEvent err
 
   runSync: ->
     Sync = require 'sync'
     Sync =>
       @task()
-      @completeHandler()
-    , @errorHandler
+      @completeEvent()
+    , @errorEvent()
 
   prepareOptions: ->
     @flags = _.map process.argv.slice(3), (flag) =>
@@ -64,7 +64,7 @@ class TasksManager
     log.ok "Task '#{@taskName}' completed!"
     process.exit()
 
-  errorHandler: (err) ->
+  errorEvent: (err) ->
     return unless err
     log.print 'err', err.sender, err.toString()
     if ++@numberOfErrors > @flags.errorsThreshold
