@@ -1,9 +1,7 @@
 OutputMediator  = require 'yivo-node-log'
 registry        = require 'yivo-node-registry'
-path            = require 'path'
 _               = require 'lodash'
 
-GLOBAL.rootDirectory = path.dirname process.mainModule.filename
 log = OutputMediator.create 'task-manager'
 
 class TasksManager
